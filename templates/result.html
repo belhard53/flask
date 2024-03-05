@@ -1,0 +1,21 @@
+<style>
+    .quiz_form{
+        height: 200px;
+    }
+    .button{
+        margin-top: 20px;
+    }
+</style>
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="quiz_form">
+    <h1>Ваш результат:</h1>
+    <div class="result"><h3>{{ right }} правильных ответов из {{ total }}</h3></div>
+    <a  href="{{url_for('index')}}" class="button"> В начало </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+<h2>ВОпросы</h2>
+
+<style>
+    .wrapper{
+        width: 80%;
+    }
+    .row{
+        display: grid;
+        grid-template-columns: 4fr repeat(4, 1fr) 40px 35px;
+    }
+    .wrapper div{
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+    button{
+        height: 100%;
+    }
+</style>
+
+<h2>Вопросы</h2>
+<div class="wrapper">
+    <div class="row hrow">
+        <div>Вопроос</div>
+        <div>Ответ</div>
+        <div>Подстава1</div>
+        <div>Подстава2</div>
+        <div>Подстава3</div>
+    </div>
+    {%for q in questions %}
+        <div class="row">            
+                <div>{{q.question}}</div>
+                <div>{{q.answer}}</div>
+                <div>{{q.wrong1}}</div>
+                <div>{{q.wrong2}}</div>
+                <div>{{q.wrong3}}</div>
+                <div><button>Ред</button></div>
+                <div><button>Уд</button></div>
+
+        </div>
+    {% endfor %}
+
+</div>

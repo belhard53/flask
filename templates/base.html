@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квизы</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
+</head>
+<body>
+    
+    <header >Header
+        <nav><ul class="main-menu">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </ul></nav> 
+    </header>         
+    
+    <main>
+
+        <section class="info">
+            Section
+            <h2>Это базовый шаблон</h2>
+        </section>
+        <section class="content">   
+            Section
+            <h2>Все остальные шаблоны загружаются внутри него</h2>
+        
+            {% block content %}
+
+            {% endblock %}
+        
+    </section>
+    </main>  
+    
+    <aside>Aside</aside>   
+    
+    <footer>Footer</footer> 
+    
+
+    
+</body>
+</html>

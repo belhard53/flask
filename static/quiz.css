@@ -1,0 +1,133 @@
+  
+
+
+.quiz_form{
+    display: block;
+    background: linear-gradient(153deg, #e9f2f375 20%, #7531807a);
+    border-radius: 30px;   
+    border: 2px solid;
+    
+    box-shadow: 14px 20px 20px 4px #614d6f;        
+    text-align: center;
+    width: 500px;
+    min-height: 250px;
+    position: relative;
+    top: 50%;                            
+    left: 50%;
+    /*margin: -250px 0 0 -250px; */
+    transform: translate(-50%, -80%);
+     background: linear-gradient(305deg, #e9f2f375 20%, #a371ab7a);
+    padding: 20px;
+    min-height: 170px;
+
+  }
+
+
+select{
+    font-size: 20px; 
+    border-radius: 10px; 
+    padding: 5px;
+    margin-bottom:12px;
+    box-shadow: inset #46234e 1px 2px 6px 0px;
+    background-color: #eaddf5;
+    transition: all 250ms ease-out;
+    width: 70%;
+    text-align: center;
+}
+select:hover{
+    /*box-shadow: inset #46234e 1px 2px 6px 0px;*/
+    box-shadow: inset #d3d3d3 3px 4px 6px 0px;
+    background-color: #f3f0f5;
+    
+
+}
+
+
+.button{
+font-size: 20px; 
+border-radius: 10px; 
+padding: 10px 15px 10px 15px;
+background-color: #c785b747;
+transition: all 450ms ease-out;
+
+}
+
+.button:hover{
+box-shadow: #46234e 1px 2px 7px 1px;
+}
+
+.form1>*{
+margin: 20px;
+}
+
+  
+/*   
+  .quiz_form{
+   
+  }
+   */
+  .anwer_row {
+    
+    text-align: center;  
+    font-size: 20px;  
+    background: linear-gradient(182deg, #e9f2f375 20%, #a371ab7a);
+    margin: 5px 0px 5px 0px; 
+    border-radius: 7px;
+    border: 1px solid rgb(212, 189, 209);
+    
+  }
+  
+  .anwer_row input[type=radio] {
+    display: none;
+  }
+  
+  .anwer_row label {  
+    border-radius: 7px;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px 0px 5px 0px;
+    transition: all 750ms ease-out;
+  }
+  .anwer_row label:hover{
+    background-color: #4a0f7473;
+    box-shadow: #46234e 0px 3px 4px 0px;
+    transition: all 350ms ease-out;
+  }
+  .anwer_row input[type=radio]:checked + label{
+    background-color: #4a0f7473;
+  }
+  
+  
+  
+  .button{
+    margin-top: 20px;
+    font-size: 20px; 
+    border-radius: 10px; 
+    padding: 2px 15px 2px 15px;
+    background-color: #c785b747;
+    transition: all 250ms ease-out;
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 7px 20px 7px 20px;
+    color:black;
+  }
+  
+  
+  .button:hover{
+      box-shadow: #46234e 1px 2px 7px 1px;
+  }
+
+
+  
+.a_but{
+    font-size: 20px; 
+    border-radius: 10px; 
+    padding: 2px 15px 2px 15px;
+    background-color: #c785b747;
+    transition: all 250ms ease-out;
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 4px 20px 4px 20px;
+    color:black;
+  }
