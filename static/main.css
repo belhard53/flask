@@ -3,8 +3,9 @@
 }
 
 body { 
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 10px;
     background-color: antiquewhite;    
     width: 100vw;
     display: grid; 
@@ -25,6 +26,8 @@ header, footer{
 
 main{
     grid-column: 1/2;
+    display: grid;
+    
 }
 aside{
     grid-row: 2/3;
@@ -41,7 +44,7 @@ header, main, aside, footer{
 section{
     margin: 10px;
     border: 1px solid gray;
-    width: calc(100%-20px);
+    /* width: calc(100%-20px); */
     background-color: rgb(242, 235, 243);  
 }
 
@@ -50,10 +53,7 @@ section{
     background-color: rgb(247, 242, 221);
 }
 
-.content{
-    
-    height: 90%;
-}
+
 
 h2 {
     text-align: center;
