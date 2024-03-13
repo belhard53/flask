@@ -1,0 +1,8 @@
+
+
+{% block main_menu %}    
+    <li> <a href="/"> на главную </a></li>
+    {% if html_config['admin'] %}
+    <li> <a href="/quizes_view/"> редактор </a></li>
+    {% endif %}
+{% endblock %}

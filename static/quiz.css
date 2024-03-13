@@ -10,15 +10,16 @@
     box-shadow: 14px 20px 20px 4px #614d6f;        
     text-align: center;
     width: 500px;
-    min-height: 250px;
-    position: relative;
-    top: 50%;                            
-    left: 50%;
+    /* width: 80%; */
+    /* min-height: 250px; */
+    /* position: relative; */
+    /* top: 50%;                             */
+    /* left: 50%; */
     /*margin: -250px 0 0 -250px; */
-    transform: translate(-50%, -80%);
+    /* transform: translate(-50%, -80%); */
      background: linear-gradient(305deg, #e9f2f375 20%, #a371ab7a);
     padding: 20px;
-    min-height: 170px;
+    /* min-height: 170px; */
 
   }
 
@@ -111,6 +112,7 @@ margin: 20px;
     border: 2px solid black;
     padding: 7px 20px 7px 20px;
     color:black;
+    
   }
   
   
@@ -131,3 +133,59 @@ margin: 20px;
     padding: 4px 20px 4px 20px;
     color:black;
   }
+
+  .quizes, .questions{
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 100%;
+    
+  }
+  
+
+
+  .quiz-row{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    transition: all 200ms;
+
+  }
+  .question-row{
+    display: grid;
+    grid-template-columns: 5% 35% repeat(4, 15%);
+    transition: all 200ms;
+  }
+  .quiz-col{
+    display: grid;
+    border:1px solid gray;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .question-hrow, .quiz-hrow {
+    background-color: #c5b0d4eb;
+  }
+
+.modal .button{
+  width: 200px;
+  margin: 20px 0;
+}
+
+
+.quiz_form input, textarea{
+  font-size: 20px;
+}
+.questions a{
+  font-size: 16px;
+}
+
+.question_edit{
+  display: grid;
+}
+.question_edit label{
+  text-align: left;
+  padding: 5px 0 0 15px;
+}
+
+.question-row:hover:hover, .quiz-row:hover{
+  background-color: #c3a4c8;
+}

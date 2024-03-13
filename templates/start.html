@@ -7,9 +7,15 @@
 
 {% extends "base.html" %}
 
-{% block content %}
+
+{% block main_menu %}
+    {{ super() }}
+    {% include 'quiz_menu.html' %}    
+{% endblock %}
+
+{% block content2 %}
 <div class="start_form quiz_form">
-    <form action="/" method="post">
+    <form action="/quiz/" method="post">
         <div class="form1">
             <h2>Выберите КВИЗ</h2>
             

@@ -8,17 +8,27 @@ class User(db.Model):
     # __tablename__ = user
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(25))
-    quizes = db.relationship('Quiz', backref='user')
+    quizes = db.relationship('Quiz', backref='user', 
+                             cascade = "all, delete, delete-orphan")
 
     def __init__(self, name) -> None:
         super().__init__()
         self.name = name
 
 
+
+quiz_question = db.Table('quiz_question',
+            db.Column('quiz_ud', db.Integer, db.ForeignKey('quiz.id'), primary_key=True),
+            db.Column('question_id', db.Integer, db.ForeignKey('question.id'), primary_key=True),
+            )
+
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # question = db.relationship(
+    #             'Question', 
+    #             secondary=quiz_question, backref = 'quiz')
 
     def __init__(self, name: str, user:User) -> None:
         super().__init__()
@@ -30,10 +40,6 @@ class Quiz(db.Model):
 
 
 
-quiz_question = db.Table('quiz_question',
-            db.Column('quiz_ud', db.Integer, db.ForeignKey('quiz.id')),
-            db.Column('question_id', db.Integer, db.ForeignKey('question.id')),
-            )
 
 
 class Question(db.Model):
@@ -43,7 +49,9 @@ class Question(db.Model):
     wrong1 = db.Column(db.String(100), nullable=False)
     wrong2 = db.Column(db.String(100), nullable=False)
     wrong3 = db.Column(db.String(100), nullable=False)
-    quiz = db.relationship('Quiz', secondary=quiz_question, backref = 'question')
+    quiz = db.relationship(
+                'Quiz', 
+                secondary=quiz_question, backref = 'question')
 
     def __init__(self, quesion: str, answer, wrong1, wrong2, wrong3) -> None:
         super().__init__()

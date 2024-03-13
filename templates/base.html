@@ -9,26 +9,44 @@
 </head>
 <body>
     
-    <header >Header
-        <nav><ul class="main-menu">
-            <li>menu1</li>
-            <li>menu2</li>
-            <li>menu3</li>
-        </ul></nav> 
+    <header >Header        
+        <nav>
+            <ul class="main-menu">
+                {% block main_menu %}
+                <li><a href="/quiz/">КВИЗ</a></li>
+                <li><a href="">menu1-2</a></li>
+                <li><a href="">menu1-3</a></li>
+                {% endblock %}
+            </ul>
+        </nav> 
+        
     </header>         
     
     <main>
 
         <section class="info">
-            Section
-            <h2>Это базовый шаблон</h2>
+            <p class="base-info">Section</p>
+            {% block content1_head %}
+                <h2>Это базовый шаблон</h2>
+                <h2>Все остальные шаблоны загружаются внутри него</h2>
+            {% endblock %}
+            
+            {% block content1 %}
+                Контент 1
+            {% endblock %}
         </section>
-        <section class="content">   
-            Section
-            <h2>Все остальные шаблоны загружаются внутри него</h2>
         
-            {% block content %}
+        
+        <section class="content">   
+            <p class="base-info">Section</p>
 
+            {% block content2_head %}
+                
+            {% endblock %}
+            
+        
+            {% block content2 %}
+                Контент 2
             {% endblock %}
         
     </section>

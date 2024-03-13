@@ -2,12 +2,15 @@
 
 </style>
 
-
-
-
 {% extends "base.html" %}
 
-{% block content %}
+{% block main_menu %}
+    {{ super() }}
+    {% include 'quiz_menu.html' %}    
+{% endblock %}
+
+
+{% block content2 %}
 <div class="quiz_form">
 
     <h2>{{question.question}}</h2>

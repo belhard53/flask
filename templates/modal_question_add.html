@@ -1,0 +1,110 @@
+<style>
+
+
+
+    .cl1{
+      width: 400px;
+  }
+  .modal{
+      background-color: rgba(39, 2, 48, 0.812);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      
+      z-index: 99;
+      
+  }
+  
+  .modal-dialog{
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      /* height: 40%; */
+      width: 70%;
+      max-width: 600px;
+      background-color: rgb(243, 227, 243);
+      box-shadow: 3px 3px 10px 1px rgb(0, 0, 0);
+      border-radius: 10px;
+      
+  }
+  
+  .btn-close{
+      color: rgb(255, 255, 255);
+      line-height: 24px;
+      position: absolute;
+      right: -1px;
+      text-align: center;
+      top: -3px;
+      width: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 2px black;
+      box-shadow: rgb(0, 0, 0) 1px 1px 3px;
+      background: rgb(167 114 114);
+      text-decoration: none;
+      border-radius: 12px;
+  }
+  .modal-header{
+      text-align: center;
+      background-color: rgb(235, 211, 234);
+      margin-top: 10px;
+      height: 10%;
+      line-height: 25px;
+  }
+  .modal-body{           
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      
+  }
+  .modal-body * {
+      margin: 3px;
+  }
+  
+  .modal:target{
+      display: block;
+  }
+  input, textarea{
+      width: 80%;
+      font-size: 20px;
+  }
+  
+  
+  </style>
+  
+  <!-- <a href="#modal2">ТЕСТ</a> -->
+  
+  
+      <div class="modal" id="modal2" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-header">
+                  <h3>Добавление нового вопроса</h3>
+                  <a href="#close" class="btn-close" aria-hidden="true">x</a>
+              </div>
+              <div class="modal-body">
+                  
+                  <form action="/quizes_view/" method="post">
+                      <fieldset>
+                          <legend>Добавьте вопрос</legend>
+                          <textarea  name="question" rows="3" placeholder="Вопрос"></textarea>
+                        
+                          <input type="text" name="answer" placeholder="Ответ">
+                          <input type="text" name="wrong1" placeholder="Вариант1">
+                          <input type="text" name="wrong2" placeholder="Вариант2">
+                          <input type="text" name="wrong3" placeholder="Вариант3">
+                          
+                          <input class="button" type="submit" value="OK">
+  
+  
+                      </fieldset>
+                      
+                  
+                  </form>
+              </div>
+          </div>
+      </div>
+  

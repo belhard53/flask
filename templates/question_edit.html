@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+
+{% block main_menu %}
+    {{ super() }}
+    {% include 'quiz_menu.html' %}    
+{% endblock %}
+
+{% block content2 %}
+
+
+<div class="quiz_form">
+    <form action="/question_edit/{{ q.id }}/" method="post">
+        <fieldset>
+            <legend>Измените данные</legend>
+            <div class="question_edit">
+                <style>
+                    
+                </style>
+                <!-- <input type="hidden" name="question_id" value="{{ q.id }}"> -->
+                <label for="question">Вопрос</label>
+                <textarea name="question" id="question" rows="3">{{q.question}}</textarea>
+                <label for="answer">Ответ</label>
+                <input type="text" name="answer" id="answer" value="{{ q.answer }}">
+                <label for="wrong1">Вариант1</label>
+                <input type="text" name="wrong1" id="wrong1" value="{{ q.wrong1 }}">
+                <label for="wrong2">Вариант2</label>
+                <input type="text" name="wrong2" id="wrong2" value="{{ q.wrong2 }}">
+                <label for="wrong3">Вариант3</label>
+                <input type="text" name="wrong3" id="wrong3" value="{{ q.wrong3 }}">
+            </div>
+            
+            <div>
+                <a class="button" href="/quizes_view">ОТМЕНА</a>
+                <input class="button" type="submit" value="OK">            
+                <a class="button" href="/question_delete/{{q.id}}">Удалить вопрос</a>
+            </div>
+            
+
+        </fieldset>
+        
+    
+    </form>
+
+
+</div>
+
+
+
+{% endblock %}
