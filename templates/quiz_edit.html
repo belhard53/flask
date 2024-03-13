@@ -7,8 +7,6 @@
 {% endblock %}
 
 {% block content1 %}
-
-
 <div class="quiz_form">
     <form action="/quiz_edit/{{ quiz.id }}/" method="post">
         <fieldset>
@@ -16,21 +14,31 @@
             <input type="hidden" name="quiz_id" value="{{ quiz.id }}">
             <label for="name">Название</label>
             <input type="text" name="name" id="name" value="{{ quiz.name }}" placeholder="Название КВИЗА">
-            <div>
-                <a class="button" href="/quizes_view">ОТМЕНА</a>
-                <input class="button" type="submit" value="OK">            
-                <a class="button" href="/quiz_delete/{{quiz.id}}">Удалить КВИЗ</a>
-            </div>
             
-
         </fieldset>
+        <fieldset>
+            <legend>Включенные вопросы</legend>
+            <p>Отметьте вопрос чтобы его исключить из КВИЗА</p>
+            
+            {% set questions, checkbox, n_tab = quiz.question, True, 1  %}            
+            {% include 'form_questions_tab.html' %}
         
-    
+        </fieldset>
+        <fieldset>
+            <legend>Остальные вопросы</legend>
+            <p>Отметьте вопрос чтобы его включить в КВИЗ</p>
+            {% set questions, checkbox, n_tab = no_questions, True, 2 %}
+            
+            {% include 'form_questions_tab.html' %}
+        </fieldset>
+        <div>
+            <a class="button" href="/quizes_view">ОТМЕНА</a>
+            <input class="button" type="submit" value="OK">            
+            <a class="button" href="/quiz_delete/{{quiz.id}}">Удалить КВИЗ</a>
+        </div>
     </form>
-
-
 </div>
-
-
-
 {% endblock %}
+
+
+

@@ -19,26 +19,13 @@ app.config['SECRET_KEY'] = 'secretkeysecretkeysecretkey1212121'
 db.init_app(app)
 
 html_config = {
-    'admin':True
+    'admin':True,
+    'debug':True
 }
 
-# with app.app_context():
-#     db_add_new_data()
+with app.app_context():
+    db_add_new_data()
 
-#     quiz = Quiz.query.all()
-    # for q in quizes:
-    #     print(f"{q}")
-    #     for qu in q.question:
-    #         print('-'*5, qu)
-
-    # question = Question.query.all()
-    # user = User.query.get(1)
-    # print(quiz[1].question)
-    # print('--')
-    # print(question[1].quiz)
-    # print(quiz[1].user)
-    # print(user.quizes)
-    # sys.exit()    
 
 @app.route('/', methods = ['GET'])
 def index():
@@ -142,15 +129,44 @@ def view_quiz_edit():
 
 @app.route('/quiz_edit/<int:id>/', methods = ['GET','POST'])
 def quiz_edit(id):
-    if request.method == 'POST':
-        quiz = Quiz.query.filter_by(id = id).one()
-        if quiz and request.form.get('name') and len(request.form.get('name')) > 3:
-            quiz.name = request.form.get('name')
-            db.session.commit()
-        return redirect('/quizes_view/')
+    # если POST - значит ответ от формы
+    if request.method == 'POST':        
+        quiz = Quiz.query.get(id)
+        if quiz:
+            if request.form.get('name') and len(request.form.get('name')) > 3:
+                quiz.name = request.form.get('name')
+                db.session.commit()
+            
+            # составляем списки вопросов для удаления и добавления отмеченные в форме
+            add_q = [q[1] for q in request.form.items() if q[0][:6]=='check2']
+            del_q = [q[1] for q in request.form.items() if q[0][:6]=='check1']
+            
+            # добавляем вопросы - вариант1            
+            # for q in add_q:
+            #     quiz.question.append(Question.query.get(int(q)))                
+            
+            if add_q or del_q:
+                # добавляем вопросы - вариант2
+                qs = Question.query.filter(Question.id.in_(add_q)).all()
+                for q in qs:
+                    quiz.question.append(q)     
+                
+                # удаляем  вопросы
+                for q in del_q:
+                    quiz.question.remove(Question.query.get(int(q)))                
+                
+                db.session.commit()
 
-    quiz = Quiz.query.filter_by(id=id).one()    
-    return render_template('quiz_edit.html', quiz = quiz, html_config = html_config)
+            return redirect('/quizes_view/')
+    
+    # если GET
+    quiz = Quiz.query.filter_by(id=id).one()
+    q_ids = [q.id for q in quiz.question] #список id вллпросов кооторые вошли в этот КВИЗ    
+    questions = Question.query.filter(Question.id.not_in(q_ids))  # выборка вопросов которые не вошли  
+    return render_template('quiz_edit.html', 
+                            quiz = quiz, 
+                            no_questions=questions,
+                            html_config = html_config)
 
 
 @app.route('/quiz_delete/<int:id>/', methods = ['GET','POST'])

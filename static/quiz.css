@@ -5,21 +5,14 @@
     display: block;
     background: linear-gradient(153deg, #e9f2f375 20%, #7531807a);
     border-radius: 30px;   
-    border: 2px solid;
-    
+    border: 2px solid;    
     box-shadow: 14px 20px 20px 4px #614d6f;        
     text-align: center;
-    width: 500px;
-    /* width: 80%; */
-    /* min-height: 250px; */
-    /* position: relative; */
-    /* top: 50%;                             */
-    /* left: 50%; */
-    /*margin: -250px 0 0 -250px; */
-    /* transform: translate(-50%, -80%); */
-     background: linear-gradient(305deg, #e9f2f375 20%, #a371ab7a);
+    min-width: 500px;
+    max-width: 100%;
+    background: linear-gradient(305deg, #e9f2f375 20%, #a371ab7a);
     padding: 20px;
-    /* min-height: 170px; */
+    
 
   }
 

@@ -62,7 +62,7 @@ class Question(db.Model):
         self.wrong3 = wrong3
 
     def __repr__(self):
-        return f'{self.question}'
+        return f'{self.id}-{self.question}'
 
 
 def db_add_new_data():

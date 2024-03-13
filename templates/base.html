@@ -59,4 +59,17 @@
 
     
 </body>
+
+{% if html_config['debug'] %}
+    <!-- <label for="autoload">Autoload</label>
+    <input id="autoload"  type="checkbox" checked="True"> -->
+    <script type="text/javascript">
+        // setTimeout("window.location.reload()",2000)
+        al = document.getElementById('autoload')
+        // if (al.checked){
+        //     setTimeout("window.location.reload()",2000)
+            
+        // }
+    </script>
+{% endif %}
 </html>

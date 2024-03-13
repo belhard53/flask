@@ -1,0 +1,26 @@
+
+<div class="question-row question-hrow">
+    <div class="quiz-col">№</div>
+    <div class="quiz-col">Вопрос</div>
+    <div class="quiz-col">Ответ</div>
+    <div class="quiz-col">Вариант 1</div>
+    <div class="quiz-col">Вариант 2</div>
+    <div class="quiz-col">Вариант 3</div>
+</div>
+{% for q in questions %}
+<a href="/question_edit/{{q.id}}">
+    <div class="question-row">
+        <div class="quiz-col">
+            {{ loop.index }}
+            {% if  checkbox %}            
+                <input type="checkbox" name = "check{{n_tab}}_{{loop.index}}" value="{{ q.id }}">
+            {% endif %}
+        </div>
+        <div class="quiz-col">{{ q.question }}</div>
+        <div class="quiz-col">{{ q.answer }}</div>
+        <div class="quiz-col">{{ q.wrong1 }}</div>
+        <div class="quiz-col">{{ q.wrong2 }}</div>
+        <div class="quiz-col">{{ q.wrong3 }}</div>
+    </div>
+</a>
+{% endfor %}
