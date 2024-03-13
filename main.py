@@ -20,7 +20,7 @@ db.init_app(app)
 
 html_config = {
     'admin':True,
-    'debug':True
+    'debug':False
 }
 
 with app.app_context():
